@@ -1,0 +1,12 @@
+{
+  "components": [
+    {
+      "id": "Button",
+      "figma": { "component": "Button" },
+      "code": { "symbol": "Button", "file": "src/button.jsx" },
+      "axes": { "Variant": { "prop": "variant", "values": { "default": "default", "outline": "outline" } } },
+      "properties": { "Label": { "code": "children" } }
+    }
+  ],
+  "icons": { "figma": { "prefix": "Icon/" }, "values": { "plus": "plus" } }
+}

@@ -1,0 +1,27 @@
+@import "tailwindcss";
+@theme {
+  --spacing: 0.25rem;
+}
+@theme inline {
+  --font-sans: 'Inter Variable', sans-serif;
+  --color-background: var(--background);
+  --color-primary: var(--primary);
+  --color-border: var(--border);
+  --radius-sm: calc(var(--radius) * 0.5);
+  --radius-lg: var(--radius);
+}
+:root {
+  --background: oklch(1 0 0);
+  --primary: oklch(0.5 0.1 250);
+  --border: #e5e7eb;
+  --radius: 0.5rem;
+}
+.dark {
+  --background: oklch(0 0 0);
+  --primary: oklch(0.5 0.1 250);
+  --border: oklch(1 0 0 / 10%);
+}
+/* brand override, both modes */
+:root, .dark {
+  --primary: #d97706;
+}

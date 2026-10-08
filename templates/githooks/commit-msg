@@ -1,0 +1,10 @@
+#!/bin/sh
+# figma-code-sync: warn (never block) when the published Figma Library has moved
+# under components the code calls. CI blocks. Needs FIGMA_TOKEN or ~/.figma-token.
+# Local install only, never the npm registry (see pre-commit).
+if [ -x node_modules/.bin/figma-code-sync ]; then
+  node_modules/.bin/figma-code-sync snapshot --check --soft --message-file "$1" || true
+elif command -v figma-code-sync >/dev/null 2>&1; then
+  figma-code-sync snapshot --check --soft --message-file "$1" || true
+fi
+exit 0

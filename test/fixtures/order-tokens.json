@@ -1,0 +1,6 @@
+{
+  "palette": { "navy": { "900": { "$type": "color", "$value": "#1E2552" }, "700": { "$type": "color", "$value": "#4A5185" } } },
+  "color": { "text": { "primary": { "$type": "color", "$value": "{palette.navy.900}", "$description": "Ink." } } },
+  "font-family": { "ui": { "$type": "fontFamily", "$value": "Inter" } },
+  "type": { "body-m": { "$type": "typography", "$value": { "fontFamily": "{font-family.ui}", "fontWeight": "regular", "fontSize": 16 } } }
+}

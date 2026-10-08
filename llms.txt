@@ -1,0 +1,20 @@
+# figma-code-sync
+
+> Keep a Figma library and a codebase one design: generated tokens, a name-matched component map, a snapshot of the published Library with per-component fingerprints, and drift gates for git hooks and CI. Zero-dependency Node CLI plus a Claude Code plugin.
+
+Install: `npm i -D github:jdaawg812/figma-code-sync#v0.1.0`, then `npx figma-code-sync init` (guided; `--yes` and flags for non-interactive use).
+Machine-readable state: `npx figma-code-sync status --json` → `{ state: code-first|unseeded|design-first|in-step|diverged|in-sync, next, errors[], warnings[] }`.
+
+## Docs
+
+- [Agent setup protocol](AGENTS.md): the exact commands and checks to set a project up, and what to do in each state
+- [README](README.md): why each gate exists, every command and flag, config / map / snapshot reference, adapters, caveats
+- [Workflow contract template](templates/WORKFLOW.md): the per-project decisions a team records
+- [figma-workflow skill](plugin/skills/figma-workflow/SKILL.md): building the Library and screens through Figma's plugin API; [the build kit](plugin/skills/figma-workflow/references/kit.js)
+- [design-audit skill](plugin/skills/design-audit/SKILL.md): comparing live Figma variable values and raw values with the tokens
+
+## Constraints
+
+- Works on Figma Professional: no Code Connect, no Variables REST API; variable values are audited through the Figma MCP.
+- Only the published Library is gated; the Product file is not.
+- Publishing a Library is a human action.

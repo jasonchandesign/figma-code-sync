@@ -1,0 +1,12 @@
+{
+  "name": "figma-code-sync",
+  "description": "Keep a Figma library and a codebase one design.",
+  "owner": { "name": "Jason Chan" },
+  "plugins": [
+    {
+      "name": "figma-code-sync",
+      "source": "./plugin",
+      "description": "Skills for the figma-code-sync contract: audit Figma drift (variables, unbound values, components) and run the Figma ↔ code workflows."
+    }
+  ]
+}

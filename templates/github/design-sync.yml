@@ -1,0 +1,34 @@
+# figma-code-sync — https://github.com/jdaawg812/figma-code-sync
+name: design-sync
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  design-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # On a PR, check out the head commit, not the merge commit, so the
+          # author's own Design-drift: waiver line is the one read.
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      # Pinned to a tag on purpose: an unpinned github: ref would fetch main on
+      # every run. Bump the tag when you upgrade. If the package is a
+      # devDependency, `npm ci` + `npx figma-code-sync …` works too.
+      - name: Tokens, map and snapshot agree (offline)
+        run: npx --yes github:jdaawg812/figma-code-sync#v0.1.0 check
+      - name: Published Library has not moved under the code
+        env:
+          FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
+        run: |
+          if [ -z "$FIGMA_TOKEN" ]; then
+            echo "::warning::FIGMA_TOKEN secret not set — skipping the published-Library check"
+          else
+            npx --yes github:jdaawg812/figma-code-sync#v0.1.0 snapshot --check --block
+          fi

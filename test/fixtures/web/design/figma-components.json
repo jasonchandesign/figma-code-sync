@@ -1,0 +1,7 @@
+{
+  "fileKey": null,
+  "components": [
+    { "name": "Button", "type": "COMPONENT_SET", "axes": { "Variant": ["default", "outline"] }, "properties": { "Label": "TEXT" } },
+    { "name": "Icon/plus", "type": "COMPONENT" }
+  ]
+}

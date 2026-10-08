@@ -1,0 +1,23 @@
+{
+  "$format": "figma-code-sync/component-map@1",
+  "$example": {
+    "$comment": "Copy this shape into `components`, one entry per component. Figma name = code symbol; axis values are the code's own strings. `$example` itself is ignored by every check.",
+    "id": "Button",
+    "figma": null,
+    "pending": "not yet drawn in the Library",
+    "code": { "symbol": "Button", "file": "src/components/ui/button.tsx", "kind": "component" },
+    "axes": {
+      "Variant": { "prop": "variant", "values": { "default": "default", "outline": "outline" } },
+      "Size": { "prop": "size", "values": { "default": "default", "sm": "sm" } }
+    },
+    "properties": { "Label": { "type": "TEXT", "code": "children" } },
+    "slots": {},
+    "allowRaw": [],
+    "notes": ""
+  },
+  "components": [],
+  "icons": {
+    "figma": { "prefix": "Icon/" },
+    "values": {}
+  }
+}

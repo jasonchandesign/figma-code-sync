@@ -1,0 +1,9 @@
+{
+  "name": "figma-code-sync",
+  "version": "0.1.0",
+  "description": "Audit Figma ↔ code drift and run the figma-code-sync workflows through the Figma MCP.",
+  "author": { "name": "Jason Chan" },
+  "homepage": "https://github.com/jdaawg812/figma-code-sync",
+  "license": "MIT",
+  "keywords": ["figma", "design-system", "drift"]
+}

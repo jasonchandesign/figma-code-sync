@@ -1,0 +1,27 @@
+{
+  "palette": {
+    "$description": "Primitives. Never used directly by views.",
+    "ink": { "900": { "$type": "color", "$value": "#111827" } },
+    "white": { "$type": "color", "$value": "#FFFFFF" }
+  },
+  "color": {
+    "text": {
+      "primary": { "$type": "color", "$value": "{palette.ink.900}", "$description": "Body text." }
+    },
+    "surface": {
+      "base": { "$type": "color", "$value": "{palette.white}" }
+    }
+  },
+  "spacing": {
+    "md": { "$type": "spacing", "$value": 16, "$extensions": { "swift": { "name": "Layout.md" } } }
+  },
+  "radius": {
+    "lg": { "$type": "borderRadius", "$value": 16, "$extensions": { "swift": { "name": "Radius.lg" } } }
+  },
+  "font-family": {
+    "ui": { "$type": "fontFamily", "$value": "Inter" }
+  },
+  "type": {
+    "body-m": { "$type": "typography", "$value": { "fontFamily": "{font-family.ui}", "fontWeight": "regular", "fontSize": 16, "lineHeight": 24 } }
+  }
+}
