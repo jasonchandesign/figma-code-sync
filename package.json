@@ -4,12 +4,38 @@
   "description": "Keep a Figma library and a codebase one design: generated tokens, a name-matched component map, a published-Library snapshot, and drift gates for hooks and CI. Zero dependencies.",
   "license": "MIT",
   "author": "Jason Chan",
-  "repository": { "type": "git", "url": "https://github.com/jdaawg812/figma-code-sync.git" },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jdaawg812/figma-code-sync.git"
+  },
   "homepage": "https://github.com/jdaawg812/figma-code-sync#readme",
-  "keywords": ["figma", "design-system", "design-tokens", "drift", "claude-code", "tailwind", "shadcn", "swiftui"],
+  "keywords": [
+    "figma",
+    "design-system",
+    "design-tokens",
+    "drift",
+    "claude-code",
+    "tailwind",
+    "shadcn",
+    "swiftui"
+  ],
   "main": "index.js",
-  "bin": { "figma-code-sync": "bin/figma-code-sync.js" },
-  "files": ["bin", "core", "adapters", "templates", "index.js"],
-  "engines": { "node": ">=18" },
-  "scripts": { "test": "node --test test/core.test.js test/scenarios.test.js" }
+  "bin": {
+    "figma-code-sync": "bin/figma-code-sync.js"
+  },
+  "files": [
+    "bin",
+    "core",
+    "adapters",
+    "templates",
+    "index.js",
+    "AGENTS.md",
+    "llms.txt"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node --test test/core.test.js test/scenarios.test.js"
+  }
 }
