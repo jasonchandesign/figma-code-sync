@@ -226,3 +226,16 @@ test('css-tailwind4: asking for spacing without declaring --spacing is an error,
   const { errors } = tokens.build(loadConfig(dir));
   assert.ok(errors.some((e) => /declares --spacing/.test(e)), errors.join('\n'));
 });
+
+test('css-tailwind4: rounded-full (calc(infinity * 1px)) publishes as 9999, and a literal @theme colour is one value for every mode', () => {
+  const dir = scratch('web');
+  const css = path.join(dir, 'src/theme.css');
+  fs.writeFileSync(css, fs.readFileSync(css, 'utf8')
+    .replace('--radius-lg: var(--radius);', '--radius-lg: var(--radius);\n  --radius-full: calc(infinity * 1px);\n  --color-brand: #112233;'));
+  const { tree, errors } = require('../adapters/css-tailwind4').read({ source: css, options: {} });
+  assert.deepEqual(errors, []);
+  assert.equal(tree.radius.full.$value, '9999px');
+  assert.equal(tree.radius.full.$extensions.web.var, 'var(--radius-full)');
+  assert.equal(tree.color.brand.$value, '#112233');
+  assert.equal(tree.color.brand.$extensions.modes.dark, '#112233');
+});
