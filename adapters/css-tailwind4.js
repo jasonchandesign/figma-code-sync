@@ -59,6 +59,9 @@ function blocks(css) {
 
 function toPx(value, vars, remPx) {
   const v = value.trim();
+  // Tailwind's `rounded-full` is `calc(infinity * 1px)`; Figma has no infinity,
+  // and 9999 is the raw value every pill already uses.
+  if (/^calc\(\s*infinity\s*\*\s*1px\s*\)$/.test(v)) return 9999;
   let m = /^var\((--[\w-]+)\)$/.exec(v);
   if (m) return vars[m[1]] != null ? toPx(vars[m[1]], vars, remPx) : null;
   m = /^calc\(\s*var\((--[\w-]+)\)\s*\*\s*([\d.]+)\s*\)$/.exec(v);

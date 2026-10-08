@@ -14,7 +14,7 @@
 //   const c = kit.comp('Badge');                       // auto-layout component
 //   await kit.fill(c, 'color/primary', 0.1);           // bound paint, 10% wash
 //   await kit.space(c, { px: 8, py: 2, gap: 4 });      // padding/gap bound to spacing/*
-//   await kit.radius(c, 'radius/lg');                  // or 'full' (raw 9999 — list it in allowRaw)
+//   await kit.radius(c, 'radius/lg');                  // or 'full' → radius/full when published, else raw 9999 (allowRaw)
 //   c.appendChild(await kit.icon('plus', 16, 'color/primary'));
 //   c.appendChild(await kit.text('Label', { size: 12, weight: 'Medium', color: 'color/primary' }));
 //   const set = await kit.finish([c, …], 'Badge', 'Code: Badge — src/…', 'Size', page);
@@ -101,8 +101,10 @@ const kit = (() => {
   // ── geometry ──
   const CORNERS = ['topLeftRadius', 'topRightRadius', 'bottomLeftRadius', 'bottomRightRadius'];
   function radius(node, name) {
-    if (name === 'full') { node.cornerRadius = 9999; return; } // raw by design: list `rounded-full` in allowRaw
-    for (const k of CORNERS) node.setBoundVariable(k, need(name));
+    // 'full' binds radius/full when the tokens publish one (Tailwind's
+    // calc(infinity * 1px) → 9999); otherwise a raw 9999 that belongs in allowRaw.
+    if (name === 'full' && !S.vars['radius/full']) { node.cornerRadius = 9999; return; }
+    for (const k of CORNERS) node.setBoundVariable(k, need(name === 'full' ? 'radius/full' : name));
   }
   /**
    * Fix ONE dimension of an auto-layout frame and leave the other as it was.
