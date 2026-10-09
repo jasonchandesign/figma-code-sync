@@ -13,7 +13,7 @@ if git diff --cached --name-only | grep -qE '^(design/|figma-sync\.config\.js)';
     FCS=figma-code-sync
   else
     echo "pre-commit: figma-code-sync is not installed, skipping the design check"
-    echo "            npm i -D github:jdaawg812/figma-code-sync#v0.1.0"
+    echo "            npm i -D github:jasonchandesign/figma-code-sync#v0.1.0"
     exit 0
   fi
   "$FCS" check || {

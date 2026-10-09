@@ -17,7 +17,7 @@
  *   hooks               point git at the scaffolded hooks (core.hooksPath + executable bit)
  *
  * Config: figma-sync.config.js at the repo root (found by walking up from cwd,
- * stopping at the repository root). Docs: https://github.com/jdaawg812/figma-code-sync
+ * stopping at the repository root). Docs: https://github.com/jasonchandesign/figma-code-sync
  */
 
 const fs = require('fs');

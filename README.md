@@ -105,7 +105,7 @@ There are three files under `design/`, plus your config:
 ### Web: Tailwind v4 / shadcn, stylesheet is the truth
 
 ```sh
-npm i -D github:jdaawg812/figma-code-sync#v0.1.0   # the package isn't on npm; install from GitHub, pinned
+npm i -D github:jasonchandesign/figma-code-sync#v0.1.0   # the package isn't on npm; install from GitHub, pinned
 npx figma-code-sync init                             # guided: detects the stylesheet, asks for the token and the Library, does the rest
 ```
 
@@ -114,12 +114,12 @@ npx figma-code-sync init                             # guided: detects the style
 ### SwiftUI: `design/tokens.json` is the truth
 
 ```sh
-npm i -D github:jdaawg812/figma-code-sync#v0.1.0   # fine in a non-Node repo: it adds package.json + node_modules (gitignore the latter)
+npm i -D github:jasonchandesign/figma-code-sync#v0.1.0   # fine in a non-Node repo: it adds package.json + node_modules (gitignore the latter)
 npx figma-code-sync init --adapter swift
 # then set tokens.out in figma-sync.config.js to your app's Theme+Generated.swift and run `npx figma-code-sync tokens`
 ```
 
-To try it without installing anything, `npx github:jdaawg812/figma-code-sync#v0.1.0 <command>` runs any command one-off. The git hooks, though, only look for a local install, so they stay silent until you add the devDependency.
+To try it without installing anything, `npx github:jasonchandesign/figma-code-sync#v0.1.0 <command>` runs any command one-off. The git hooks, though, only look for a local install, so they stay silent until you add the devDependency.
 
 ### Non-interactive, and for AI agents
 
@@ -135,7 +135,7 @@ npx figma-code-sync status --json      # { state, next, errors: [{where, message
 ### Then, in Claude Code
 
 ```
-/plugin marketplace add jdaawg812/figma-code-sync
+/plugin marketplace add jasonchandesign/figma-code-sync
 /plugin install figma-code-sync@figma-code-sync
 ```
 
@@ -682,7 +682,7 @@ These are honest limitations. Several are Figma's, some are ours.
 
 If your repo runs `gen_theme.py`, `check_design_sync.py` and `fetch_figma_snapshot.py` (Math Sheets Unlimited / Seesay Lingo style):
 
-1. Run `npm i -D github:jdaawg812/figma-code-sync#v0.1.0`, then `npx figma-code-sync init --adapter swift`. It keeps your existing `design/` files.
+1. Run `npm i -D github:jasonchandesign/figma-code-sync#v0.1.0`, then `npx figma-code-sync init --adapter swift`. It keeps your existing `design/` files.
 2. In `figma-sync.config.js`:
    - set `tokens.out` to your `Theme+Generated.swift` path;
    - set `tokens.options = { header: 'scripts/gen_theme.py', regenerate: 'python3 scripts/gen_theme.py' }` if you want the banner byte-identical during the switch;

@@ -19,7 +19,7 @@ Read `README.md` for the reasoning. This file is only the procedure.
 ## Step 0 — install (once)
 
 ```sh
-npm i -D github:jdaawg812/figma-code-sync#v0.1.0
+npm i -D github:jasonchandesign/figma-code-sync#v0.1.0
 ```
 
 Check: `npx figma-code-sync --help` prints the command list (exit 0).
@@ -92,7 +92,7 @@ a variant that the map (and so Figma) doesn't know.
 ## Writing to Figma
 
 Only through Figma's MCP server / plugin API. In Claude Code, install the plugin
-(`/plugin marketplace add jdaawg812/figma-code-sync`, then
+(`/plugin marketplace add jasonchandesign/figma-code-sync`, then
 `/plugin install figma-code-sync@figma-code-sync`) and use the
 `figma-workflow` skill to build the Library and the `design-audit` skill to
 compare variable values. Other agents: follow `plugin/skills/figma-workflow/SKILL.md`

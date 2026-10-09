@@ -9,7 +9,7 @@ Follow `AGENTS.md` in the figma-code-sync repository (also shipped at
 `node_modules/figma-code-sync/AGENTS.md` once installed). The short form:
 
 1. **Install**, if `npx figma-code-sync --help` fails:
-   `npm i -D github:jdaawg812/figma-code-sync#v0.1.0`
+   `npm i -D github:jasonchandesign/figma-code-sync#v0.1.0`
 2. **Ask the user two things before running anything**: the Library file URL (if a
    Library exists), and whether they have a Figma personal access token saved to
    `~/.figma-token`. If not, tell them how to create one (Figma → Settings →

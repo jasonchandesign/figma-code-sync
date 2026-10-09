@@ -3,7 +3,7 @@
 The UI exists twice: as code, and as a component library in Figma. This
 document is the contract that keeps them the same thing in both directions, and
 lists where drift gets caught. The engine is
-[figma-code-sync](https://github.com/jdaawg812/figma-code-sync). Edit this file
+[figma-code-sync](https://github.com/jasonchandesign/figma-code-sync). Edit this file
 to record your project's own decisions.
 
 ## 1. The system in one paragraph
@@ -55,7 +55,7 @@ Drift is caught in four places:
 ## 5–7. Workflows A, B, C
 
 These are the `figma-workflow` skill's workflows (install the Claude Code
-plugin: `/plugin marketplace add jdaawg812/figma-code-sync`):
+plugin: `/plugin marketplace add jasonchandesign/figma-code-sync`):
 - **A:** implement a Figma frame in code;
 - **B:** reflect a committed code change into the Library or Product file;
 - **C:** move a token change in either direction.

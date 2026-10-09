@@ -365,7 +365,7 @@ async function init({ cwd = process.cwd(), argv = [], ask = askOnTty, fetchImpl 
   else if (fs.existsSync(path.join(cwd, '.git'))) { try { enableHooks(cwd); log('    core.hooksPath = scripts/githooks (pre-commit checks, commit-msg warns)'); } catch (e) { log(`    could not enable: ${e.message}`); } }
   else log('    not a git repository yet — run `figma-code-sync hooks` after `git init`');
   if (!fs.existsSync(path.join(cwd, 'node_modules', '.bin', 'figma-code-sync'))) {
-    log('    the hooks look for a local install: npm i -D github:jdaawg812/figma-code-sync#v0.1.0');
+    log('    the hooks look for a local install: npm i -D github:jasonchandesign/figma-code-sync#v0.1.0');
   }
 
   // 9. status

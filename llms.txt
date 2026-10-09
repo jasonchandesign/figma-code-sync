@@ -2,7 +2,7 @@
 
 > Keep a Figma library and a codebase one design: generated tokens, a name-matched component map, a snapshot of the published Library with per-component fingerprints, and drift gates for git hooks and CI. Zero-dependency Node CLI plus a Claude Code plugin.
 
-Install: `npm i -D github:jdaawg812/figma-code-sync#v0.1.0`, then `npx figma-code-sync init` (guided; `--yes` and flags for non-interactive use).
+Install: `npm i -D github:jasonchandesign/figma-code-sync#v0.1.0`, then `npx figma-code-sync init` (guided; `--yes` and flags for non-interactive use).
 Machine-readable state: `npx figma-code-sync status --json` → `{ state: code-first|unseeded|design-first|in-step|diverged|in-sync, next, errors[], warnings[] }`.
 
 ## Docs

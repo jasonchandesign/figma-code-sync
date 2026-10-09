@@ -1,4 +1,4 @@
-// figma-code-sync config — https://github.com/jdaawg812/figma-code-sync
+// figma-code-sync config — https://github.com/jasonchandesign/figma-code-sync
 // Truth mode: EXTRACT. A Tailwind v4 / shadcn stylesheet is the token source of
 // truth; design/tokens.json is generated from it and is what Figma variables are
 // written from. The contract lives in design/WORKFLOW.md.

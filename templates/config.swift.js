@@ -1,4 +1,4 @@
-// figma-code-sync config — https://github.com/jdaawg812/figma-code-sync
+// figma-code-sync config — https://github.com/jasonchandesign/figma-code-sync
 // Truth mode: EMIT. design/tokens.json (DTCG) is the hand-edited source of truth;
 // the SwiftUI theme is generated from it. The contract lives in design/WORKFLOW.md.
 
