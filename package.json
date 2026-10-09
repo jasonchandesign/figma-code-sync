@@ -30,6 +30,7 @@
     "templates",
     "index.js",
     "AGENTS.md",
+    "docs",
     "llms.txt"
   ],
   "engines": {

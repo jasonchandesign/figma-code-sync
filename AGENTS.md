@@ -14,7 +14,7 @@ keyboard except two things the tool cannot do: paste a Figma token, and press
 - `design/figma-components.json` — the published Library, as last read over REST
 - git hooks + a CI workflow that fail when the two sides disagree
 
-Read `README.md` for the reasoning. This file is only the procedure.
+Read `README.md` and `docs/gates.md` for the reasoning. This file is only the procedure.
 
 ## Step 0 — install (once)
 
@@ -65,7 +65,7 @@ Exit 1 means `state` is `diverged`.
 | `state` | Meaning | What to do |
 |---|---|---|
 | `code-first` | no Library connected, or nothing published yet | build the Library from `design/tokens.json` and the components (Claude Code: the `figma-code-sync:figma-workflow` skill, "Building the Library"); ask the person to **Publish**; then `init --library <url>` |
-| `unseeded` | Library published, map empty | `init --seed` (design-first) or write map entries for the code components (see the map shape in README → "Component map reference") |
+| `unseeded` | Library published, map empty | `init --seed` (design-first) or write map entries for the code components (see the map shape in `docs/reference.md` → "Component map reference") |
 | `design-first` | map entries exist in Figma, not in code | build each component in code; set its `code.file`; remove `code.pending` |
 | `in-step` | both sides exist, some entries still owed | draw / build the owed ones; publish; `npx figma-code-sync snapshot` pays off Figma-side debt by name |
 | `diverged` | `errors` is non-empty | each error names the file, the component and the side that moved; fix that side (names must match exactly; a value in Figma that isn't in code, or the reverse, is listed by name) |
@@ -77,7 +77,7 @@ findings alone.
 ## Step 3 — wire the code side's roster (web projects with a test runner)
 
 The CLI cannot evaluate JSX, so it cannot know which variants a React component
-accepts. Add a test that hands it the roster (README → "Using it from your own
+accepts. Add a test that hands it the roster (`docs/plugin.md` → "Using it from your own
 test runner"). After that, `npm test` also fails when code grows a component or
 a variant that the map (and so Figma) doesn't know.
 

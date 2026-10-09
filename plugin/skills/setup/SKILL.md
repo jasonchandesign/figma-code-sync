@@ -25,7 +25,7 @@ Follow `AGENTS.md` in the figma-code-sync repository (also shipped at
    - `unseeded`: `init --seed` for design-first, or write map entries for the code's components.
    - `design-first` / `in-step`: build or draw what each pending entry owes, then refresh (`npx figma-code-sync snapshot`).
    - `diverged`: fix each error on the side it names. Names must match exactly.
-5. **Wire the roster** in the project's test runner (README → "Using it from your own test runner") so `npm test` guards the map from the code side.
+5. **Wire the roster** in the project's test runner (`docs/plugin.md` → "Using it from your own test runner") so `npm test` guards the map from the code side.
 6. **Report** the final `status` output and anything that still needs a human: a token, a publish, a decision about which side is right.
 
 Do not edit generated files, do not waive gates, and do not claim a publish

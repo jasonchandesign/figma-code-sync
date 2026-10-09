@@ -322,7 +322,7 @@ async function init({ cwd = process.cwd(), argv = [], ask = askOnTty, fetchImpl 
       const doc = readJson(out);
       const n = (g) => Object.keys(doc[g] || {}).length;
       log(`    wrote ${rel(config.root, out)} — ${n('color')} colours (${(doc.$extensions['figma-code-sync'].modes || []).join('/')}), ${n('radius')} radii, ${n('spacing')} spacing steps, ${n('font')} fonts`);
-      if (!n('spacing')) log('    no spacing scale: declare `@theme { --spacing: 0.25rem; }` in the stylesheet so components can bind to spacing/* (README → Adapters)');
+      if (!n('spacing')) log('    no spacing scale: declare `@theme { --spacing: 0.25rem; }` in the stylesheet so components can bind to spacing/* (docs/adapters.md)');
     } else log(`    wrote ${rel(config.root, out)}`);
   } catch (e) {
     log(`    could not generate: ${e.message}`);

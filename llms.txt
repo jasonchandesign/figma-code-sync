@@ -8,7 +8,15 @@ Machine-readable state: `npx figma-code-sync status --json` → `{ state: code-f
 ## Docs
 
 - [Agent setup protocol](AGENTS.md): the exact commands and checks to set a project up, and what to do in each state
-- [README](README.md): why each gate exists, every command and flag, config / map / snapshot reference, adapters, caveats
+- [README](README.md): what it is, how it works, quick start, every command and its exit codes
+- [Concepts](docs/concepts.md): truth modes, what becomes a Figma variable, name identity, the map, the snapshot fingerprint, pending debt, waivers
+- [The gates](docs/gates.md): every rejection each gate produces, and why it is a rule
+- [Reference](docs/reference.md): figma-sync.config.js, component-map.json and figma-components.json field by field
+- [Plugin and programmatic API](docs/plugin.md): the design-audit and figma-workflow skills, the build kit's rules, check.run() / tokens.check() from a test runner
+- [Adapters](docs/adapters.md): css-tailwind4 (extract), swift (emit), writing your own
+- [Caveats](docs/caveats.md): what Figma cannot show, what this package does not check, Plugin API quirks
+- [Migrating](docs/migrating.md): from the original Python scripts
+- [FAQ](docs/faq.md)
 - [Workflow contract template](templates/WORKFLOW.md): the per-project decisions a team records
 - [figma-workflow skill](plugin/skills/figma-workflow/SKILL.md): building the Library and screens through Figma's plugin API; [the build kit](plugin/skills/figma-workflow/references/kit.js)
 - [design-audit skill](plugin/skills/design-audit/SKILL.md): comparing live Figma variable values and raw values with the tokens
