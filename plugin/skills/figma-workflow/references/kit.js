@@ -226,6 +226,25 @@ const kit = (() => {
     return key;
   }
   const variantName = (o) => Object.entries(o).map(([k, v]) => `${k}=${v}`).join(', ');
+  /**
+   * Clone a variant INSIDE a component set and keep its property wiring.
+   * `variant.clone()` silently drops every componentPropertyReferences (Label,
+   * Show icon, Icon stop working on the clone), so they are copied back by
+   * layer path. Returns the clone, named `newName`, appended to the same set.
+   */
+  function cloneVariant(variant, newName) {
+    const set = variant.parent;
+    const twin = variant.clone();
+    twin.name = newName;
+    if (set && set.type === 'COMPONENT_SET') set.appendChild(twin);
+    const pathOf = (n, root) => { const p = []; for (let x = n; x && x !== root; x = x.parent) p.unshift(`${x.type}:${x.name}`); return p.join('/'); };
+    const refs = new Map();
+    for (const n of [variant, ...variant.findAll(() => true)]) if (n.componentPropertyReferences && Object.keys(n.componentPropertyReferences).length) refs.set(pathOf(n, variant), n.componentPropertyReferences);
+    let rewired = 0;
+    for (const n of [twin, ...twin.findAll(() => true)]) { const r = refs.get(pathOf(n, twin)); if (r) { n.componentPropertyReferences = { ...r }; rewired++; } }
+    S.lastClone = { id: twin.id, rewired };
+    return twin;
+  }
 
   // ── rule 2: translucency on the layer ──
   function inInstance(n) { for (let p = n.parent; p; p = p.parent) if (p.type === 'INSTANCE') return true; return false; }
@@ -399,5 +418,5 @@ const kit = (() => {
     return { name: root.name, id: root.id, rawPaint: [...rawPaint], rawSpacing: [...rawSpacing] };
   }
 
-  return { init, paint, setPaint, fill, stroke, copyWeights, radius, bindSpacing, space, fixSize, fixWidth, fixHeight, al, comp, text, icon, effect, prop, wire, variantName, alphaPass, autoBind, grid, finish, audit, state: S };
+  return { init, paint, setPaint, fill, stroke, copyWeights, radius, bindSpacing, space, fixSize, fixWidth, fixHeight, al, comp, text, icon, effect, prop, wire, variantName, cloneVariant, alphaPass, autoBind, grid, finish, audit, state: S };
 })();

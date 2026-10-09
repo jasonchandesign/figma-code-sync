@@ -103,5 +103,7 @@ component by exact name once it is published.
   - Keep surfaces that cast a shadow opaque, or the shadow appears to fall from the content.
 - **`createFrame()` clips by default.** Set `clipsContent = false` on frames that hold components, or shadows get shaved.
 - **Icons:** make one component per icon (`Icon/<name>`), each holding a single vector named `Glyph`. Colour overrides survive an instance swap only when layer names match. `upload_assets` imports SVG files as editable vectors, so bulk icons never have to pass through a script.
+- **`variant.clone()` inside a set drops every `componentPropertyReferences`**, so Label / Show icon / Icon stop working on the clone. Use `kit.cloneVariant(variant, newName)`, which copies the wiring back by layer path. (Adding an axis such as `Disabled=false|true` is exactly this: clone every variant, then adjust the clones.)
+- **A native slot** (`component.createSlot()`) lives on the COMPONENT, not a frame; create it, then append it where the content goes. Slots created per variant in an existing set don't merge: point the others' `componentPropertyReferences.slotContentId` at the first key and `deleteComponentProperty` the duplicates.
 - **A component set is a definition, not a switcher.** Editing a variant's value on the master renames it, and duplicate variant names break publishing.
 - **`get_metadata` without a node ID lists only the first page.** Query by ID.
