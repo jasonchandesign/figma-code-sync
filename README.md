@@ -645,7 +645,7 @@ These are honest limitations. Several are Figma's, some are ours.
 - **Variable values aren't on the REST API below Enterprise.** The snapshot sees components, axes, properties and structure, but not what `color/primary` is set to. Only the `design-audit` skill (through the Figma MCP) compares variable values. **Token drift in Figma isn't caught by CI.** Run the audit before every publish.
 - **Only the published Library is visible.** A changed but unpublished component looks unchanged. That's intended (see above), but it means the gate reports what consumers can receive, not what's on the designer's canvas.
 - **The Product file isn't gated.** Screens drift from code without any check; the contract only covers the Library. Keep screens built from Library instances, and treat them as illustrations.
-- **Publishing is manual.** Every Library change needs a human click before anything downstream sees it.
+- **Publishing is manual, and so is accepting it.** Every Library change needs a human click before anything downstream sees it, and a consuming file keeps stale copies of the components until the update is accepted there too; the `figma-workflow` skill refreshes instances by re-importing their component keys.
 - **Plugin API quirks** (they matter if you, or Claude, build components programmatically):
   - Assigning a variable-bound paint can reset its `opacity` to 1. Bind, assign, then reassign a copy with the opacity.
   - Instances can render bound paints at full opacity regardless. Put translucency on the layer: node opacity, or a locked full-size "wash" rectangle.
